@@ -5,5 +5,5 @@
   %ul
     - @listing_dates.each do |date|
       %li 
-        = link_to_unless (date == @date), date.to_s(:listing_date), date: date.to_s(:db), anchor: "current" do
+        = link_to_unless (date == @date), date.to_s(:listing_date), { date: date.to_s(:db), anchor: "current" } , remote: true do
           %span#current= date.to_s(:listing_date)

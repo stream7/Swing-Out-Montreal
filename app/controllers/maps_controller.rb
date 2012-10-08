@@ -38,6 +38,10 @@ class MapsController < ApplicationController
                 marker.json(json_options)
       end
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def socials
@@ -55,6 +59,7 @@ class MapsController < ApplicationController
     
     events =  if date && @listing_dates.include?(date)
                 @date = date
+                @id = params[:id]
                 Event.socials_on_date(date)
               else 
                 Event.socials_dates(today).map{ |s| s[1] }.flatten
@@ -81,6 +86,10 @@ class MapsController < ApplicationController
         json_options.merge!coloured_marker_json_options(:green) if venue.id.to_s == params[:id]
         marker.json(json_options)
       end
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
   

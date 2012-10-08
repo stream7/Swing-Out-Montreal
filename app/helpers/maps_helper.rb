@@ -24,4 +24,17 @@ module MapsHelper
     )
   end
 
+  def social_url
+    url = "/map/socials"
+    url += "/#{@date.to_s(:db)}" if @date
+    url += "/#{@id}" if @id
+    return url
+  end
+  
+  def class_url
+    url = "/map/classes"
+    url += "/#{@day}" if @day
+    url += "/#{@id}" if @id
+    return url
+  end
 end
