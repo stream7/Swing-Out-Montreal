@@ -1,2 +1,9 @@
 Gmaps.map.replaceMarkers(<%= raw @json %>);
-window.history.pushState(null,'ho','<%= class_url %>')
+
+// Grab the url, and update the url to reflect the current selection:
+var old_url = window.location.href;
+window.history.replaceState(null,'ho','<%= class_url %>');
+
+// Replace the 'current' span with a link, and the selected link with a 'current' span
+$('.listings #current').replaceWith('<a href="'+ old_url + '" data-remote="true">'+ $('#current').html() + '</a>');
+$("a:contains(<%= @day.pluralize %>)").replaceWith('<span id="current"><%= @day.pluralize %></span>');
