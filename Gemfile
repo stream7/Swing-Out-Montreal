@@ -8,6 +8,7 @@ gem 'thin'
 # Gems used in all environments
 gem 'haml'
 gem 'haml_rails'
+gem 'redcarpet' # markdown
 gem 'jquery-rails'
 
 gem 'twitter'
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-livereload'
+  gem 'simplecov'
 end
 
 group :production do

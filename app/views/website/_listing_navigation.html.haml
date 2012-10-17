@@ -1,0 +1,50 @@
+#listing_navigation
+  %p 
+    Swing Out London lists all of the regular 
+    = link_to "swing dance classes", {:anchor => "classes_today"}, {:rel =>"subsection"}
+    in London which teach
+    = succeed "," do 
+      = link_to "Lindy Hop", {:action => "listings_policy", :anchor=> "about_lindy"}, {:rel =>"subsection"}
+    Charleston, Balboa, Blues, Collegiate Shag and Authentic Jazz
+  %p 
+    It also lists all of the opportunities for
+    = link_to "social dancing", {:anchor => "socials_today"}, {:rel =>"subsection"}
+    to Swing, Hot Jazz, Trad Jazz and Manouche.
+
+    Read more
+    = link_to "about", :action => "about"
+    it or check out the awesome
+    = link_to "map", controller: "maps", action: "socials"
+    
+#note
+  %p
+    If you think something is missing or incorrect please
+    = mail_to CONTACT_EMAIL, "Email", :subject => "Swing Out London"
+    (but check the 
+    =link_to "listings policy", :action => "listings_policy"
+    first)
+  %p#caveat
+    %strong Please note:
+    The listings shown are only a guide. You should always check the source website before making any plans
+
+#social_media
+  #latest_tweet
+    Loading the latest tweet...
+
+  - # Foo for the facebook like button:
+  #fb-root
+  :javascript
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  
+  %a.fb-like{ :href => "http://www.swingoutlondon.co.uk", "data-action" => "like", "data-layout" => "button_count", "data-send" => "true", "data-font" => "trebuchet ms" } Like Swing Out London on Facebook
+  %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/swingoutlondon"} Follow @swingoutlondon
+  :javascript
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+  

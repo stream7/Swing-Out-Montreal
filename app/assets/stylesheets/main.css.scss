@@ -84,15 +84,12 @@ p em { font-style: italic }
 
 q:before, q:after { content:'"'; }
 
-ul.textlist { list-style-type: disc; padding-left: 3em; }
-  ul.textlist li { padding-left: 0.5em; }
-ul.indent {list-style-type: square;}
-
-.section_heading {
-  text-transform: uppercase;
-  text-align:center;
-  line-height:1.5em;
+ul.unstyled, ol.unstyled {
+  margin-left: 0;
+  list-style: none;
 }
+
+ul.indent {list-style-type: square;}
 
 h3 {
   font-size:1.2em;
@@ -100,6 +97,15 @@ h3 {
 
 
 /* HEADER */
+
+#header {
+  border-bottom: 3px solid #0F0F0F;
+  margin: 0 60px;
+}
+
+body.website.index #header {
+  padding-bottom: 30px;
+}
 
 #title { padding: 20px; }
 
@@ -128,17 +134,59 @@ h3 {
   margin-bottom:10px;
 }
 
-/* SITE DESCRIPTION */
+/* LISTING NAVIGATION */
 
-#site_description {
-  width:370px;
-  margin:30px 0 0 60px;
-  float:left;
-  clear:both;
+#listing_navigation {
+  margin: 25px 0 35px;
+  p {
+    font-size: 1.4em;
+    line-height: 1.7em;
+    margin-bottom: 0.9em;
+  }
+  a {
+    text-transform:capitalize;
+    font-size: 1.4em;
+  }
+}
+
+#note {
+  width: 370px;
+  float: left;
+  p {
+    font-size: 1.1em
+  }
+  //TODO: DRY up
+  a {
+    text-transform: capitalize;
+    font-size: 1.3em;
+  }
+  #caveat {
+    font-size: 0.9em;
+    font-style: italic;
+    strong {
+      font-size: 1.2em;
+      color: #C00;
+    }
+  }
+}
+
+#social_media {
+  width: 370px;
+  margin: 0 0 0 410px;
+  text-align: right;
+  .twitter-follow-button {
+    position: relative;
+    top: 4px;
+  }
+  .fb-like{
+    &:hover {
+      border: none;
+    }
+  }
 }
 
 @media only screen and (max-device-width: 480px){
-  #site_description {
+  #note {
     width:auto;
     margin:30px;
     padding-bottom:30px;
@@ -146,24 +194,6 @@ h3 {
     float:none;
     clear:none;
   }
-}
-
-
-
-#site_description a {
-  text-transform:capitalize;
-  font-size:1.2em;
-}
-#site_description a[href^='mailto:'] {
-  color:#C00;
-}
-
-#social_media {
-  width:370px;
-  margin:30px 60px 0 470px;
-}
-
-@media only screen and (max-device-width: 480px){
   #social_media {
     width:inherit;
     margin:30px 30px 10px 30px;
@@ -171,48 +201,28 @@ h3 {
 }
 
 
-#social_media #like_message{
-  margin-bottom:0.5em;
-}
-
-.twitter-share-button {
-  position:relative;
-  top:3px;
-}
-
 #latest_tweet{
   text-align:left;
   line-height:1.5em;
-  font-family: Helvetica, Arial, sans-serif;
-  font-style:italic;
   font-size:0.9em;
+  //font-family: Helvetica, Arial, sans-serif;
+  font-family: Georgia, Times, "Times New Roman", serif;
   padding: 8px;
   border: 6px double #0F0F0F;
+  margin-bottom: 3px;
+  h4 {
+    display: inline;
+    font-weight: bold;
+  }
+  p {
+    display: inline;
+    font-style: italic;
+  }
 }
 
-#latest_tweet a {
-  color:#C00;
-}
 #latest_tweet a.tweet_created {
   font-size:0.8em;
   color:#384F6E;
-}
-
-#caveat {
-  font-style:italic;
-  clear:left;
-  text-align:center;
-  padding: 0.8em 10px 30px 0;
-  margin:0 50px;
-  border-bottom: 3px solid #0F0F0F;
-}
-
-#caveat strong {
-  text-transform: uppercase;
-  display:block;
-  margin-bottom:0.4em;
-  font-size:1.2em;
-  color:#C00;
 }
 
 
@@ -223,7 +233,7 @@ ul.navigation{list-style-type:none;letter-spacing:0.1em;line-height:3.5em;text-t
 ul.navigation li{display:inline;margin:0 0.5em 0 0;padding:0 0 0 1em;white-space:nowrap;}
 
 #admin_nav{text-align:center;clear:both;padding:1em 0;}
-#main_nav{text-align:center;clear:both;font-size:1.14em;margin:0 50px;padding-bottom:15px;border-bottom:3px solid #0F0F0F;}
+#main_nav{text-align:center;clear:both;font-size:1.14em;padding-bottom:15px;}
 
 @media only screen and (max-device-width: 480px){
   /* changed padding to force nav configuration */
@@ -366,7 +376,7 @@ address, #last_updated{
 /* LISTINGS */
 /************/
 #classes .daylist{ font-size:1.1em; margin:1.2em 0 40px 0; padding-bottom:10px; border-right: 3px solid #0F0F0F;padding-right:22px; }
-#socials .datelist{ font-size:1.1em; margin:1.2em 0 40px 0; padding-bottom:10px; border-left: 3px solid #0F0F0F; padding-left:22px; }
+#socials .datelist{ font-size:1.1em; margin:1.2em 0 0 0; padding-bottom:10px; border-left: 3px solid #0F0F0F; padding-left:22px; }
 #classes h3 { font-size:1.1em; padding-left:3px; float:left; }
   #classes .today h3 {padding-left:0px;}
 #socials h3 { font-size:1.2em; display:block; text-align:center; margin-bottom:0.5em; }
@@ -426,17 +436,6 @@ li.date_row a {color: #0F0F0F; }
 .cancelled_label{color:#FEE6B8; background-color:#CC0000; }
 .new_label {color:#FEE6B8; background-color:#0F0F0F; }
 
-.postcode {
-    border: 1px solid #0F0F0F;
-    display: block;
-    float: left;
-    width: 3.5em; /*N.B. Longest displaying postcode is NW1W. This won't fit in this space, but we don't have any postcodes in that area a.t.m.*/
-    position:relative;
-    bottom:0.1em;
-    padding-left:0.3em;
-    text-transform:uppercase;
-    font-size:0.7em;
-}
 
 /* TODAY AND TOMORROW */
 /**********************/
@@ -465,69 +464,150 @@ li.today:target {
     li.date_row .today_label:after, li.date_row .tomorrow_label:after {content:":"}
 
 /* ABOUT PAGE */
-
-
-.section_heading{
-  margin-bottom:10px;
+.content { 
+  width: 470px;
+  margin: 0 0 35px 50px;
+  float: left;
 }
-
-h1.section_heading {
-  font-size:1.8em;
-  margin-top:35px;
-}
-h2.section_heading {
-  font-size:1.5em;
-  margin-top:35px;
-}
-
-#about_swingoutlondon{ margin:35px 76px 35px 50px; }
-#policy{ margin:35px 76px 35px 50px; }
 
 .sidebar {
-  padding:20px;
-  margin:0 50px 30px 30px;
+  padding: 20px;
+  margin: 0 50px 30px 30px;
   border: 6px double #0F0F0F;
-  width:247px;
-  float:right;
-  clear:right;
+  width: 247px;
+  float: right;
+  clear: right;
+  &.first{ 
+    margin-top: 35px;
+  }
+  h3 {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5em;
+  }
+  p, ul {
+    font-family: Georgia, serif;
+    font-style:italic;
+  }
+  ul {
+    list-style-type: disc;
+    padding-left: 2em;
+    li {
+      margin-bottom: 1.2em;
+    }
+  }
 }
 
 @media only screen and (max-device-width: 480px){
   #about_swingoutlondon{ margin:35px 30px; }
-  #policy{ margin:35px 30px; }
+  .content{ margin:35px 30px; }
   .sidebar { margin:0 20px 30px 20px; width:auto; float:none; clear:none; }
 }
 
-
-.sidebar p, .sidebar ul {
-  font-family: Georgia, serif;
-  font-style:italic;
+.content {
+  h1, h2 {
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5em;
+    margin: 35px 0 10px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  em {
+    font-style: italic;
+  }
+  ul {
+    list-style: disc;
+    padding-left: 2em;
+  }
+  ol {
+    list-style: outside decimal;
+    margin-left: 1.7em;
+  }
+  ol, ul {
+    h3, h4 {
+      margin-bottom: 0.4em;
+    }
+  }
+  table {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
-/*style for first sidebar*/
-#about_me, #about_lindy {margin-top:35px;}
+table {
+  padding-bottom: 35px;
+  th, td {
+    padding: 10px 15px 0;
+    line-height: 1.5em;
+    &.row_title {
+      font-size: 1.1em;
+      border-right: solid 1px #0F0F0F;
+    }
+  }
+  tr.first td {
+    padding-top: 20px;
+  }
+
+  th {
+    padding: 10px 15px 18px;
+    font-size: 1.3em;
+    text-align: center;
+    border-bottom: solid 1px #0F0F0F;
+  }
+  &.full-width {
+    clear: both;
+    padding: 0 50px 35px;
+  }
+  &#music_policy {
+    th, td {
+      width: 180px;
+      vertical-align: middle;
+      &.row_title {
+        width: 150px;
+      }
+    }
+  }
+  &#classes_policy, &#socials_policy{
+    th, td {
+      width: 50%;
+    }
+  }
+}
 
 #colophon {
-  padding:20px;
-  margin:35px 100px; 
+  clear: both;
+  padding: 20px;
+  margin: 35px 130px; 
   border: 6px double #0F0F0F;
-  text-align:justify;
+  text-align: justify;
+  h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5em;
+  }
+  li {
+    margin-bottom: 0.8em;
+  }
+  ul ul { 
+    list-style-type: disc;
+    padding-left: 3em;
+    li { 
+      padding-left: 0.5em;
+      margin-bottom: inherit; 
+    }
+  }
 }
 @media only screen and (max-device-width: 480px){
   #colophon { margin:35px 0px; }
 }
-  #colophon h2 {margin-top:0px;}
-  #colophon li {margin-bottom:0.8em;}
-  #colophon .textlist li {margin-bottom:inherit;}
-
-#principles {
-  list-style: outside decimal;
-  margin-left:1.7em;
-}
-#principles h3{font-size:1.2em;}
-
-#principles h3, #listings_policy h4 {margin-bottom:0.4em;}
-#principles li, #listings_policy li {margin-bottom:1.2em;}
 
 #listings_policy p {padding-left:2em;}
 
