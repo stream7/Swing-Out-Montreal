@@ -23,6 +23,8 @@ gem "api_cache", "~> 0.2"
 
 gem "figaro", "~> 0.7"
 
+gem "pg", "~> 0.17"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -32,7 +34,6 @@ group :assets do
 end
 
 group :development, :test do
-  gem "sqlite3", "~> 1.3"
   gem "awesome_print", "~> 1.2"
   gem "pry", "~> 0.9"
   gem "rspec-rails", "~> 2.14"
@@ -48,7 +49,6 @@ group :development, :test do
 end
 
 group :production do
-  gem "pg", "~> 0.17"
   gem "newrelic_rpm", "~> 3.6"
 end
 
