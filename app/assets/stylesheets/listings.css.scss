@@ -163,7 +163,6 @@ $small_font_size: 12px;
 }
 #note {
   max-width: 500px;
-  margin-bottom: 10px;
   p {
     font-size: 15px
   }
@@ -357,8 +356,16 @@ li.date_row {
 // ADVERTS
 /////////////////////////////////////////////
 
+@media only screen and (max-width: 480px) {
+  .rectangular_ad {
+    img, .placeholder a {
+      width: 95%;
+    }
+  }
+}
+
 .ad_units {
-  padding-top: 1.6em;
+  padding-top: 1em;
   a:hover {
     border: 0;
   }
@@ -416,4 +423,55 @@ li.date_row {
   border: 6px double $text-colour;
   padding: 10px;
   margin: auto;
+}
+
+// DONATION
+/////////////////////////////////////////////
+.donation {
+  padding: 0;
+  background-color: #fff8ea;
+  border: 6px double $text-colour;
+  width: 368px;
+  margin-top: 2.5em;
+  p {
+    margin: 10px;
+  }
+  form {
+    float: left;
+    .donate_button {
+      background-color: #EF4836;
+      color: white;
+      border: solid;
+      border-width: 0;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.share_button {
+  display: inline-block;
+  margin: 0 0 10px 10px;
+  padding: 8px 20px;
+  &:hover {
+    border: none;
+  }
+}
+.facebook {
+  background-color: $facebook-blue;
+  color: white;
+}
+.twitter {
+  background-color: $twitter-blue;
+  color: white;
+}
+
+@media only screen and (max-width: 480px) {
+  .donation {
+    width: 95%;
+  }
 }

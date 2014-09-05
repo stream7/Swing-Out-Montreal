@@ -3,7 +3,6 @@ source "https://rubygems.org"
 ruby "2.1.2"
 
 gem 'rails', '3.2.18'
-gem "thin", "~> 1.5"
 
 # Gems used in all environments
 gem "haml", "~> 4.0"
@@ -33,6 +32,10 @@ group :assets do
   gem "uglifier", "~> 2.2"
 end
 
+group :development do
+  gem "thin", "~> 1.5"
+end
+
 group :development, :test do
   gem "awesome_print", "~> 1.2"
   gem "pry", "~> 0.9"
@@ -49,6 +52,8 @@ group :development, :test do
 end
 
 group :production do
+  gem "pg", "~> 0.17"
+  gem "unicorn"
   gem "newrelic_rpm", "~> 3.6"
 end
 
