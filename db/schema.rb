@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20140820210653) do
 
+  create_table "dance_classes", :force => true do |t|
+    t.string   "day",        :null => false
+    t.integer  "venue_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "event_generators", :force => true do |t|
     t.integer  "event_seed_id", :null => false
     t.datetime "created_at"
@@ -40,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20140820210653) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
