@@ -4,7 +4,7 @@ DAYNAMES = Date::DAYNAMES.to_a[1..6] << Date::DAYNAMES.to_a[0]
 COMPASS_POINTS = %w( C N S E W NE NW SE SW )
 
 LOGINS={
-  "dgms" => "12fc8b7edab94448559b7ac12ee2b8bb",
+  "stelios" => "030da1cea9a93bf75d92cfecac8797c6",
 }
 
 # How many socials should be displayed on the index page?
